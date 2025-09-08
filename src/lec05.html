@@ -753,7 +753,7 @@ x_1 \\ x_2 \\ x_3
 </section>
 <section id="python-version-of-iterative-methods" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="python-version-of-iterative-methods"><span class="header-section-number">6.4</span> Python version of iterative methods</h2>
-<div id="42ddb9f2" class="cell" data-execution_count="2">
+<div id="0f97f09f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jacobi_iteration(A, b, x0, max_iter, verbose<span class="op">=</span><span class="va">False</span>):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="al">TODO</span></span>
@@ -811,7 +811,7 @@ x_1 \\ x_2 \\ x_3
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="37b2a5ac" class="cell" data-execution_count="3">
+<div id="9227abf3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="fl">2.0</span>, <span class="fl">1.0</span>], [<span class="op">-</span><span class="fl">1.0</span>, <span class="fl">4.0</span>]])</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([[<span class="fl">3.5</span>], [<span class="fl">0.5</span>]])</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> np.array([[<span class="fl">1.0</span>], [<span class="fl">1.0</span>]])</span>
@@ -868,7 +868,7 @@ after iter=4: x.T = [  1.49994,  0.49998 ]
 </ul>
 <section id="python-experiments" class="level3" data-number="6.5.1">
 <h3 data-number="6.5.1" class="anchored" data-anchor-id="python-experiments"><span class="header-section-number">6.5.1</span> Python experiments</h3>
-<div id="b5313bea" class="cell" data-execution_count="4">
+<div id="121397c8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> system_size_sparse(A_real, I_row, I_col, b):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(b)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    nonzero <span class="op">=</span> <span class="bu">len</span>(A_real)</span>
@@ -878,7 +878,7 @@ after iter=4: x.T = [  1.49994,  0.49998 ]
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n, nonzero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>First let’s adapt our implementations to use this sparse matrix format:</p>
-<div id="6aa733a3" class="cell" data-execution_count="5">
+<div id="83d1a4b8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jacobi_iteration_sparse(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    A_real, I_row, I_col, b, x0, max_iter, verbose<span class="op">=</span><span class="va">False</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>):</span>
@@ -953,7 +953,7 @@ after iter=4: x.T = [  1.49994,  0.49998 ]
 <span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then we can test the two different implementations of the methods:</p>
-<div id="be526a91" class="cell" data-execution_count="7">
+<div id="2c621e09" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random matrix</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">4</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>nonzero <span class="op">=</span> <span class="dv">10</span></span>
@@ -984,37 +984,37 @@ after iter=4: x.T = [  1.49994,  0.49998 ]
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sparse matrix:
-A_real = [-6.75 -2.   56.5  -4.   16.25 -2.    2.25 -6.75  1.   -4.  ]
-I_row =  [0 0 0 1 1 1 2 2 3 3]
-I_col =  [2 1 0 3 1 0 2 0 3 1]
+A_real = [-13.75  -0.5   20.5   -4.    10.    -0.5   28.25  -4.   -13.75   4.  ]
+I_row =  [0 0 0 1 1 1 2 2 2 3]
+I_col =  [2 1 0 2 1 0 2 1 0 3]
 
 dense matrix:
-A_dense = [ 56.50, -2.00, -6.75,  0.00 ]
-          [ -2.00, 16.25,  0.00, -4.00 ]
-          [ -6.75,  0.00,  2.25,  0.00 ]
-          [  0.00, -4.00,  0.00,  1.00 ]
+A_dense = [ 20.50, -0.50, -13.75,  0.00 ]
+          [ -0.50, 10.00, -4.00,  0.00 ]
+          [ -13.75, -4.00, 28.25,  0.00 ]
+          [  0.00,  0.00,  0.00,  4.00 ]
 
 jacobi with sparse matrix
 starting value: x.T = [  0.0,  0.0,  0.0,  0.0 ]
-after iter=0: x.T = [  0.84513,  0.63077, -2.00000, -3.00000 ]
-after iter=1: x.T = [  0.628523, -0.003676,  0.535398, -0.476923 ]
-after iter=2: x.T = [  0.908966,  0.590729, -0.114432, -3.014704 ]
-after iter=3: x.T = [  0.85237249,  0.00056103,  0.72689838, -0.63708226 ]
-after iter=4: x.T = [  0.93199,  0.57886,  0.55712, -2.99776 ]
+after iter=0: x.T = [  0.30488,  0.55000,  0.37168,  1.00000 ]
+after iter=1: x.T = [  0.56759,  0.71392,  0.59795,  1.00000 ]
+after iter=2: x.T = [  0.72335,  0.81756,  0.74903,  1.00000 ]
+after iter=3: x.T = [  0.82722,  0.88578,  0.83952,  1.00000 ]
+after iter=4: x.T = [  0.88957,  0.92717,  0.89973,  1.00000 ]
 
 jacobi with dense matrix
 starting value: x.T = [  0.0,  0.0,  0.0,  0.0 ]
-after iter=0: x.T = [  0.84513,  0.63077, -2.00000, -3.00000 ]
-after iter=1: x.T = [  0.628523, -0.003676,  0.535398, -0.476923 ]
-after iter=2: x.T = [  0.908966,  0.590729, -0.114432, -3.014704 ]
-after iter=3: x.T = [  0.85237249,  0.00056103,  0.72689838, -0.63708226 ]
-after iter=4: x.T = [  0.93199,  0.57886,  0.55712, -2.99776 ]
+after iter=0: x.T = [  0.30488,  0.55000,  0.37168,  1.00000 ]
+after iter=1: x.T = [  0.56759,  0.71392,  0.59795,  1.00000 ]
+after iter=2: x.T = [  0.72335,  0.81756,  0.74903,  1.00000 ]
+after iter=3: x.T = [  0.82722,  0.88578,  0.83952,  1.00000 ]
+after iter=4: x.T = [  0.88957,  0.92717,  0.89973,  1.00000 ]
 </code></pre>
 </div>
 </div>
 <p>We see that we get the same results!</p>
 <p>Now let’s see how long it takes to get a solution. The following plot shows the run times of using the two different implementations of the Jacobi method. We see that, as expected, the run time of the dense formulation is <span class="math inline">\(O(n^2)\)</span> and the run time of the sparse formulation is <span class="math inline">\(O(n)\)</span>.</p>
-<div id="fe9ab845" class="cell" data-execution_count="9">
+<div id="4fae0666" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
