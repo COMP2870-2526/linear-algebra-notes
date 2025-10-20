@@ -754,7 +754,7 @@ x_1 \\ x_2 \\ x_3
 </section>
 <section id="python-version-of-iterative-methods" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="python-version-of-iterative-methods"><span class="header-section-number">5.4</span> Python version of iterative methods</h2>
-<div id="9897a301" class="cell" data-execution_count="2">
+<div id="905a37b7" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> jacobi_iteration(A, b, x0, max_iter, verbose<span class="op">=</span><span class="va">False</span>):</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="co">"""</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="co">    Solve a linear system Ax = b using the Jacobi iterative method.</span></span>
@@ -881,7 +881,7 @@ x_1 \\ x_2 \\ x_3
 <span id="cb1-124"><a href="#cb1-124"></a></span>
 <span id="cb1-125"><a href="#cb1-125"></a>    <span class="cf">return</span> x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="0846a9fc" class="cell" data-execution_count="3">
+<div id="f0d09073" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>A <span class="op">=</span> np.array([[<span class="fl">2.0</span>, <span class="fl">1.0</span>], [<span class="op">-</span><span class="fl">1.0</span>, <span class="fl">4.0</span>]])</span>
 <span id="cb2-2"><a href="#cb2-2"></a>b <span class="op">=</span> np.array([[<span class="fl">3.5</span>], [<span class="fl">0.5</span>]])</span>
 <span id="cb2-3"><a href="#cb2-3"></a>x0 <span class="op">=</span> np.array([[<span class="fl">1.0</span>], [<span class="fl">1.0</span>]])</span>
@@ -939,7 +939,7 @@ after iter=4: x.T = [  1.49994,  0.49998 ]
 <section id="python-experiments" class="level3" data-number="5.5.1">
 <h3 data-number="5.5.1" class="anchored" data-anchor-id="python-experiments"><span class="header-section-number">5.5.1</span> Python experiments</h3>
 <p>First let’s adapt our implementations to use this sparse matrix format:</p>
-<div id="1cdeb62e" class="cell" data-execution_count="5">
+<div id="02ed1ed5" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> jacobi_iteration_sparse(</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    A_real, I_row, I_col, b, x0, max_iter, verbose<span class="op">=</span><span class="va">False</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>):</span>
@@ -1084,7 +1084,7 @@ after iter=4: x.T = [  1.49994,  0.49998 ]
 <span id="cb5-142"><a href="#cb5-142"></a>    <span class="cf">return</span> x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Then we can test the two different implementations of the methods:</p>
-<div id="51314b45" class="cell" data-execution_count="7">
+<div id="0ae0b967" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># random matrix</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>n <span class="op">=</span> <span class="dv">4</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>nonzero <span class="op">=</span> <span class="dv">10</span></span>
@@ -1115,37 +1115,37 @@ after iter=4: x.T = [  1.49994,  0.49998 ]
 <span id="cb6-28"><a href="#cb6-28"></a><span class="bu">print</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sparse matrix:
-A_real = [-2.25 20.25  7.    3.5  12.25  2.    3.5  10.25 -2.25 13.    2.    7.  ]
-I_row =  [0 0 1 1 1 2 2 2 2 3 3 3]
-I_col =  [2 0 3 2 1 3 1 2 0 3 2 1]
+A_real = [-0.25 -1.25  0.5   6.75 20.25  0.25 -0.25  6.75 24.5  -1.25]
+I_row =  [0 0 0 1 1 2 2 3 3 3]
+I_col =  [2 3 0 3 1 2 0 1 3 0]
 
 dense matrix:
-A_dense = [ 20.25,  0.00, -2.25,  0.00 ]
-          [  0.00, 12.25,  3.50,  7.00 ]
-          [ -2.25,  3.50, 10.25,  2.00 ]
-          [  0.00,  7.00,  2.00, 13.00 ]
+A_dense = [  0.50,  0.00, -0.25, -1.25 ]
+          [  0.00, 20.25,  0.00,  6.75 ]
+          [ -0.25,  0.00,  0.25,  0.00 ]
+          [ -1.25,  6.75,  0.00, 24.50 ]
 
 jacobi with sparse matrix
 starting value: x.T = [  0.0,  0.0,  0.0,  0.0 ]
-after iter=0: x.T = [  0.88889,  1.85714,  1.31707,  1.69231 ]
-after iter=1: x.T = [  1.03523,  0.51380,  0.54784,  0.48968 ]
-after iter=2: x.T = [  0.94976,  1.42080,  1.27333,  1.33136 ]
-after iter=3: x.T = [  1.03037,  0.73256,  0.78063,  0.73137 ]
-after iter=4: x.T = [  0.97563,  1.21618,  1.15040,  1.17776 ]
+after iter=0: x.T = [ -2.00000,  1.33333,  0.00000,  1.22449 ]
+after iter=1: x.T = [  1.06122,  0.92517, -2.00000,  0.75510 ]
+after iter=2: x.T = [ -1.11224,  1.08163,  1.06122,  1.02374 ]
+after iter=3: x.T = [  1.08996,  0.99209, -1.11224,  0.86974 ]
+after iter=4: x.T = [ -0.38177,  1.04342,  1.08996,  1.00677 ]
 
 jacobi with dense matrix
 starting value: x.T = [  0.0,  0.0,  0.0,  0.0 ]
-after iter=0: x.T = [  0.88889,  1.85714,  1.31707,  1.69231 ]
-after iter=1: x.T = [  1.03523,  0.51380,  0.54784,  0.48968 ]
-after iter=2: x.T = [  0.94976,  1.42080,  1.27333,  1.33136 ]
-after iter=3: x.T = [  1.03037,  0.73256,  0.78063,  0.73137 ]
-after iter=4: x.T = [  0.97563,  1.21618,  1.15040,  1.17776 ]
+after iter=0: x.T = [ -2.00000,  1.33333,  0.00000,  1.22449 ]
+after iter=1: x.T = [  1.06122,  0.92517, -2.00000,  0.75510 ]
+after iter=2: x.T = [ -1.11224,  1.08163,  1.06122,  1.02374 ]
+after iter=3: x.T = [  1.08996,  0.99209, -1.11224,  0.86974 ]
+after iter=4: x.T = [ -0.38177,  1.04342,  1.08996,  1.00677 ]
 </code></pre>
 </div>
 </div>
 <p>We see that we get the same results!</p>
 <p>Now let us see how long it takes to get a solution. The following plot shows the run times of using the two different implementations of the Jacobi method, each for 10 iterations. We see that, as expected, the run time of the dense formulation is <span class="math inline">\(O(n^2)\)</span> and the run time of the sparse formulation is <span class="math inline">\(O(n)\)</span>.</p>
-<div id="442b2e81" class="cell" data-execution_count="9">
+<div id="a4756221" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
