@@ -658,13 +658,15 @@ print("QR factorisation:")
 print_array(Q)
 print_array(R)
 
-print("Have we computed a factorisation? (A == Q @ R?)", np.allclose(A, Q @ R))
+print("Have we computed a factorisation? (A ≈ Q @ R)", np.allclose(A, Q @ R))
 print(
-    "Is Q orthonormal? (Q.T @ Q == np.eye(3))", np.allclose(np.eye(3), Q.T @ Q)
+    "Is Q orthonormal? (Q.T @ Q ≈ np.eye(3))", np.allclose(np.eye(3), Q.T @ Q)
 )
 
 
 ```
+
+Note that due to rounding errors, that $A$ is not exactly equal to $Q R$ and $Q$ is not exactly orthormal.
 
 ## Finding eigenvalues and eigenvectors
 
